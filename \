@@ -47,15 +47,8 @@ void Debugger::handle_command_(const std::string& line) {
         std::string addr{tokens[1], 2};
         set_breakpoint_at_address(std::stol(addr, 0, 16));
     } else if (is_prefix(command, "register")) {
-        if (is_prefix(tokens[1], "dump")) {
+        if (is_prefix(args[1], "dump")) {
             dump_registers();
-        } else if (is_prefix(tokens[1], "read")) {
-            std::cout << get_register_value(proc_id_, get_register_from_name(tokens[2])) << std::endl;           
-        } else if (is_prefix(tokens[1], "write")) {
-            // TODO(rstelmac): need to validate and parse the address 
-            // it has prefix 0x? or not
-            std::string val {tokens[3], 2}; // assume 0xVAL
-            set_register_value(proc_id_, get_register_from_name(tokens[2]), std::stol(val, 0, 16));
         }
     } else {
         fprintf(stderr, "Unknown command\n");
@@ -85,15 +78,5 @@ void Debugger::dump_registers() {
             << std::setfill('0') << std::setw(16) << std::hex << get_register_value(proc_id_, rd.r) << std::endl;
     }
 }
-
-void Debugger::write_memory(uint64_t address, uint64_t value) {
-
-}
-
-auto Debugger::read_memory(uint64_t address) -> uint64_t {
-
-}
-
-
 
 } // namespace inx

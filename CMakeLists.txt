@@ -15,7 +15,10 @@ set(SOURCE_FILES
     src/common_helper.cc
     src/common_helper.hh
     src/breakpoint.hh
-    src/breakpoint.cc)
+    src/breakpoint.cc
+    src/registers.hh
+    src/registers.cc
+    )
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES} external/linenoise/linenoise.c)
 
