@@ -34,7 +34,7 @@ void Debugger::run() {
 void Debugger::handle_command_(const std::string& line) {
 
     std::vector<std::string> tokens;
-    [[maybe_unused]]bool status = extract_tokens(line, ',', tokens);
+    [[maybe_unused]]bool status = extract_tokens(line, ' ', tokens);
 
     auto command = tokens[0];
     

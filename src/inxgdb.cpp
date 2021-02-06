@@ -1,5 +1,6 @@
 #include <unistd.h>
 #include <sys/ptrace.h>
+#include <sys/personality.h>
 
 #include <cstdio>
 
@@ -25,6 +26,8 @@ int main(int argc, char **argv) {
         // or registers.
         // TODO(rstelmac): check for return code, and handle the error code
         ptrace(PTRACE_TRACEME, 0, nullptr, nullptr);
+        // disable address space randomiation
+        personality(ADDR_NO_RANDOMIZE);
         execl(prog, prog, nullptr);
     } else if (pid >= 1) {
         // We're in the parent process
