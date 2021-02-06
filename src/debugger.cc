@@ -1,9 +1,13 @@
 #include "debugger.hh"
-#include "common_helper.hh"
 
-#include <utility>
 #include <sys/wait.h>
 #include <sys/ptrace.h>
+
+#include <utility>
+#include <vector>
+
+#include "common_helper.hh"
+
 #include "linenoise.h"
 
 namespace inx {
@@ -36,6 +40,9 @@ void Debugger::handle_command_(const std::string& line) {
     
     if (is_prefix(command, "continue")) {
         continue_execution_();
+    } else if (is_prefix(command, "break")) {
+        std::string addr{tokens[1], 2};
+        set_breakpoint_at_address(std::stol(addr, 0, 16));
     } else {
         fprintf(stderr, "Unknown command\n");
     }
@@ -48,6 +55,15 @@ void Debugger::continue_execution_() {
     auto options{0};
     waitpid(proc_id_, &wait_status, options);
 }
+
+void Debugger::set_breakpoint_at_address(std::intptr_t address) {
+
+    printf("Set breakpoint at address %p", address);
+    Breakpoint bp{proc_id_, address};
+    bp.enable();
+    breakpoints_.insert(std::make_pair(address, bp));
+}
+
 
 
 } // namespace inx

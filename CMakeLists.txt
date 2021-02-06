@@ -14,7 +14,8 @@ set(SOURCE_FILES
     src/debugger.cc
     src/common_helper.cc
     src/common_helper.hh
-    )
+    src/breakpoint.hh
+    src/breakpoint.cc)
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES} external/linenoise/linenoise.c)
 

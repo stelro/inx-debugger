@@ -11,7 +11,22 @@
 },
 {
   "directory": "/home/stel/workspace/inx-debugger/build",
+  "command": "/usr/bin/c++   -I/home/stel/workspace/inx-debugger/external/libelfin -I/home/stel/workspace/inx-debugger/external/linenoise -I/home/stel/workspace/inx-debugger/include    -std=c++17 -o CMakeFiles/inx_debugger.dir/src/common_helper.cc.o -c /home/stel/workspace/inx-debugger/src/common_helper.cc",
+  "file": "/home/stel/workspace/inx-debugger/src/common_helper.cc"
+},
+{
+  "directory": "/home/stel/workspace/inx-debugger/build",
+  "command": "/usr/bin/c++   -I/home/stel/workspace/inx-debugger/external/libelfin -I/home/stel/workspace/inx-debugger/external/linenoise -I/home/stel/workspace/inx-debugger/include    -std=c++17 -o CMakeFiles/inx_debugger.dir/src/breakpoint.cc.o -c /home/stel/workspace/inx-debugger/src/breakpoint.cc",
+  "file": "/home/stel/workspace/inx-debugger/src/breakpoint.cc"
+},
+{
+  "directory": "/home/stel/workspace/inx-debugger/build",
   "command": "/usr/bin/cc  -I/home/stel/workspace/inx-debugger/external/libelfin -I/home/stel/workspace/inx-debugger/external/linenoise -I/home/stel/workspace/inx-debugger/include    -std=c++17 -o CMakeFiles/inx_debugger.dir/external/linenoise/linenoise.c.o   -c /home/stel/workspace/inx-debugger/external/linenoise/linenoise.c",
   "file": "/home/stel/workspace/inx-debugger/external/linenoise/linenoise.c"
+},
+{
+  "directory": "/home/stel/workspace/inx-debugger/build",
+  "command": "/usr/bin/c++   -I/home/stel/workspace/inx-debugger/external/libelfin -I/home/stel/workspace/inx-debugger/external/linenoise -I/home/stel/workspace/inx-debugger/include    -g -O0 -std=c++17 -o CMakeFiles/hello.dir/examples/hello_world.cpp.o -c /home/stel/workspace/inx-debugger/examples/hello_world.cpp",
+  "file": "/home/stel/workspace/inx-debugger/examples/hello_world.cpp"
 }
 ]
